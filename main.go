@@ -2,26 +2,28 @@ package main
 
 import (
 	"fmt"
-	"github.com/MansurEh99/blog_aggregator/internal/config"
+	"github.com/MansurEh99/blog_aggregator.git/internal/config"
 )
 
-func main() error {
+func main() {
 	cfg, err := config.Read()
 	if err != nil {
-		return err
+		fmt.Println("problem when reading file", err)
+		return
 	}
 
 	err = cfg.SetUser("fool")
 	if err != nil {
-		return err
+		fmt.Println("problem when setting username", err)
+		return
 	}
 
 	cfg, err = config.Read()
 	if err != nil {
-		return err
+		fmt.Println("problem when reading file", err)
+		return
 	}
 
-	fmt.Println(cfg.dbUrl)
+	fmt.Println(cfg.DbUrl)
 	fmt.Println(cfg.CurrentUsername)
-	return nil
 }
