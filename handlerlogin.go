@@ -3,6 +3,8 @@ package main
 import(
 	"fmt"
 	"errors"
+	"os"
+	"context"
 )
 
 func handlerLogin(s *state, cmd command) error {
@@ -10,7 +12,13 @@ func handlerLogin(s *state, cmd command) error {
 		return errors.New("no command inputed")
 	}
 
-	err := s.cfg.SetUser(cmd.args[0])
+	_, err := s.db.GetUser(context.Background(), cmd.args[0])
+	if err != nil {
+		os.Exit(1)
+		return err
+	}
+
+	err = s.cfg.SetUser(cmd.args[0])
 	if err != nil {
 		return fmt.Errorf("Problem setting username: %v", err)
 	}

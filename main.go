@@ -1,10 +1,14 @@
 package main
 
+import _ "github.com/lib/pq"
+
 import (
 	"fmt"
 	"os"
+	"database/sql"
 
 	"github.com/MansurEh99/blog_aggregator/internal/config"
+	"github.com/MansurEh99/blog_aggregator/internal/database"
 )
 
 func main() {
@@ -16,6 +20,15 @@ func main() {
 
 	var st state
 	st.cfg = &cfg
+
+	db, err := sql.Open("postgres", st.cfg.DbUrl)
+	if err != nil {
+		fmt.Println("problem opening database", err)
+		return
+	}
+
+	dbQueries := database.New(db)
+	st.db = dbQueries
 
 	var c commands
 	c.commands = make(map[string]func(*state, command) error)
@@ -30,10 +43,11 @@ func main() {
 	cmd.args = os.Args[2:]
 
 	c.register("login", handlerLogin)
+	c.register("register", handlerRegister)
 
 	err = c.run(&st, cmd)
 	if err != nil {
-		fmt.Println("no username provided")
+		fmt.Printf("error:%v\n", err)
 		os.Exit(1)
 	}
 }
