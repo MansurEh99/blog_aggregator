@@ -8,7 +8,8 @@ package database
 import (
 	"context"
 	"time"
-	"uuid"
+
+	"github.com/google/uuid"
 )
 
 const createUser = `-- name: CreateUser :one

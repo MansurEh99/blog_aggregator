@@ -5,8 +5,8 @@ import (
 	"errors"
 	"context"
 	"time"
-	"uuid"
 
+	"github.com/google/uuid"
 	"github.com/lib/pq"
 	"github.com/MansurEh99/blog_aggregator/internal/database"
 )

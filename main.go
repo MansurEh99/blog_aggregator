@@ -44,6 +44,13 @@ func main() {
 
 	c.register("login", handlerLogin)
 	c.register("register", handlerRegister)
+	c.register("reset", handlerReset)
+	c.register("addfeed", middlewareLoggedIn(handlerAddFeed))
+	c.register("feeds", handlerFeeds)
+	c.register("agg", handlerAgg)
+	c.register("follow", middlewareLoggedIn(handlerFollow))
+	c.register("unfollow", middlewareLoggedIn(handlerUnfollow))
+	c.register("following", middlewareLoggedIn(handlerFollowing))
 
 	err = c.run(&st, cmd)
 	if err != nil {
