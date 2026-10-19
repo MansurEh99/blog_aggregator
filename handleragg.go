@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
-	"context"
+	"errors"
+	"time"
 )
 
 func handlerAgg(s *state, cmd command) error {
-	feed, err := fetchFeed(context.Background(), "https://www.wagslane.dev/index.xml")
-	if err != nil {
-		return err
+	if len(cmd.args) == 0 {
+		return errors.New("need to input timer like 1s, 1m, 1h...")
 	}
 
-	fmt.Printf("%v\n", *feed)
-	return nil
+	timeBetweenRequests, err := time.ParseDuration(cmd.args[0])
+	if err != nil {
+		return errors.New("no timer inputed or invalid timer")
+	}
+	fmt.Printf("Collecting feeds every %v\n", timeBetweenRequests)
+
+	ticker := time.NewTicker(timeBetweenRequests)
+	for ; ; <-ticker.C {
+		fmt.Println("fetching...")
+		scrapeFeeds(s)
+	}
 }
