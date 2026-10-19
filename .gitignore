@@ -1,0 +1,9 @@
+.aggieconfig.json
+
+# Binaries
+*.exe
+*.out
+main
+
+# Local environment files
+.env
