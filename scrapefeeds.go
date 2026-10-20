@@ -9,7 +9,7 @@ import (
 	"database/sql"
 
 	"github.com/google/uuid"
-	"github.com/MansurEh99/blog_aggregator/internal/database"
+	"github.com/MansurEh99/gator/internal/database"
 )
 
 func scrapeFeeds(s *state) error {

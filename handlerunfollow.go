@@ -5,7 +5,7 @@ import (
 	"errors"
 	"context"
 
-	"github.com/MansurEh99/blog_aggregator/internal/database"
+	"github.com/MansurEh99/gator/internal/database"
 )
 
 func handlerUnfollow(s *state, cmd command, user database.User) error {

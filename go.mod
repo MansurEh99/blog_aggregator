@@ -1,4 +1,4 @@
-module github.com/MansurEh99/blog_aggregator
+module github.com/MansurEh99/gator
 
 go 1.27.1
 

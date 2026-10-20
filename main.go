@@ -7,8 +7,8 @@ import (
 	"os"
 	"database/sql"
 
-	"github.com/MansurEh99/blog_aggregator/internal/config"
-	"github.com/MansurEh99/blog_aggregator/internal/database"
+	"github.com/MansurEh99/gator/internal/config"
+	"github.com/MansurEh99/gator/internal/database"
 )
 
 func main() {

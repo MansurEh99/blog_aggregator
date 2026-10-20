@@ -7,7 +7,7 @@ import (
 	"errors"
 
 	"github.com/google/uuid"
-	"github.com/MansurEh99/blog_aggregator/internal/database"
+	"github.com/MansurEh99/gator/internal/database"
 )
 
 func handlerAddFeed(s *state, cmd command, user database.User) error {
