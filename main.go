@@ -51,6 +51,7 @@ func main() {
 	c.register("follow", middlewareLoggedIn(handlerFollow))
 	c.register("unfollow", middlewareLoggedIn(handlerUnfollow))
 	c.register("following", middlewareLoggedIn(handlerFollowing))
+	c.register("browse", middlewareLoggedIn(handlerBrowse))
 
 	err = c.run(&st, cmd)
 	if err != nil {

@@ -29,7 +29,7 @@ func handlerRegister(s *state, cmd command) error {
     	return errors.New("name already exists")
 	}
 	if err != nil {
-		return err
+		return errors.New("unable to create user")
 	}
 
 	err = s.cfg.SetUser(cmd.args[0])
@@ -38,6 +38,9 @@ func handlerRegister(s *state, cmd command) error {
 	}
 
 	fmt.Println("user created")
-	fmt.Printf("%v\n", user)
+	fmt.Printf("- id: %v\n", user.ID)
+	fmt.Printf("- created at: %v\n", user.CreatedAt)
+	fmt.Printf("- updated at: %v\n", user.UpdatedAt)
+	fmt.Printf("- name: %v\n", user.Name)
 	return nil
 }

@@ -35,12 +35,12 @@ func handlerAddFeed(s *state, cmd command, user database.User) error {
 		return err
 	}
 
-	fmt.Println(feed.ID)
-	fmt.Println(feed.CreatedAt)
-	fmt.Println(feed.UpdatedAt)
-	fmt.Println(feed.Name)
-	fmt.Println(feed.Url)
-	fmt.Println(feed.UserID)
+	fmt.Printf("- id: %v\n", feed.ID)
+	fmt.Printf("- created at: %v\n", feed.CreatedAt)
+	fmt.Printf("- updated at: %v\n", feed.UpdatedAt)
+	fmt.Printf("- name: %v\n", feed.Name)
+	fmt.Printf("url: %v\n", feed.Url)
+	fmt.Printf("user id: %v\n", feed.UserID)
 
 	return nil
 }
