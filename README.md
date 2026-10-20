@@ -4,7 +4,7 @@ A multi-player command line tool for aggregating RSS feeds and viewing the posts
 
 ## Installation
 
-Make sure you have the latest [Go toolchain](https://golang.org/dl/) installed as well as a local Postgres database. You can then install `gator` with:
+Make sure you have the latest [Go toolchain](https://golang.org/dl/) installed as well as a local Postgres database. You can then install `blog_aggregator` with:
 
 ```sh
 go install ...
