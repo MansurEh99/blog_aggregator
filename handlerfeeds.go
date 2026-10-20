@@ -13,9 +13,10 @@ func handlerFeeds(s *state, cmd command) error {
 	}
 
 	for _, feed := range feeds {
-		fmt.Println(feed.Name)
-		fmt.Println(feed.Url)
-		fmt.Println(feed.UserName)
+		fmt.Println("feed:")
+		fmt.Printf("- name: %v\n", feed.Name)
+		fmt.Printf("- url: %v\n", feed.Url)
+		fmt.Printf("- username: %v\n", feed.UserName)
 	}
 
 	return nil
